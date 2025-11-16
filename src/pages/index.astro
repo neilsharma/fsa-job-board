@@ -178,7 +178,7 @@ const jobs = await getCollection('jobs')
   <!-- Mission Statement (deep navy background) -->
   <section
     class="relative overflow-hidden"
-    style="background: linear-gradient(to bottom, #0A1A2F, #112D46); padding-top: 150px; padding-bottom: 150px;"
+    style="background: radial-gradient(ellipse at center, #1a2942, #0a1420); padding-top: 150px; padding-bottom: 150px;"
   >
     <!-- Subtle grain texture -->
     <div
@@ -187,16 +187,16 @@ const jobs = await getCollection('jobs')
     >
     </div>
 
-    <!-- Faint dot pattern in corners -->
+    <!-- Grid pattern -->
     <div
-      class="absolute inset-0 opacity-[0.04]"
-      style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 32px 32px;"
+      class="absolute inset-0 opacity-[0.50]"
+      style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 40px 40px;"
     >
     </div>
 
     <div class="relative mx-auto max-w-[800px] px-6">
       <h2 class="mb-12 text-center font-medium tracking-tight text-white" style="font-size: 42px; line-height: 1.2;">
-        Why We Exist
+        The Work
       </h2>
 
       <p class="mb-8 text-white" style="font-size: 21px; line-height: 1.65;">
@@ -218,10 +218,9 @@ const jobs = await getCollection('jobs')
     <div class="mx-auto max-w-3xl px-6">
       <div class="mb-16 text-center">
         <h2 class="mb-4 text-5xl font-medium tracking-tight">Open Positions</h2>
-        <p class="text-lg leading-relaxed text-gray-600">
-          Our team comes from Google, Meta, USDS, 18F, and other top organizations. We're building one of the highest
-          talent-density teams in federal government. High ownership, high urgency, high standards — that's the
-          baseline.
+        <p class="text-gray-600" style="font-size: 21px; line-height: 1.65;">
+          Our team comes from Google, Meta, The White House, and other top organizations. We're building one of the highest
+          talent-density teams in government. High ownership, high urgency, high standards.
         </p>
       </div>
 
