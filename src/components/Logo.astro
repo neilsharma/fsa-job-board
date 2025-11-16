@@ -8,6 +8,6 @@ import { Link } from 'accessible-astro-components'
  */
 ---
 
-<Link href="/" class="flex items-center gap-2">
+<Link href={import.meta.env.BASE_URL} class="flex items-center gap-2">
   <span class="text-black" style="font-size: 24px; font-weight: 700;">Department of Education</span>
 </Link>
