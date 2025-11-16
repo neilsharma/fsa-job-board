@@ -105,13 +105,13 @@ const sanitizedSubtitle: string = subtitle
 
           return (
             <Breadcrumbs>
-              <BreadcrumbsItem href={import.meta.env.BASE_URL} label="Home" />
+              <BreadcrumbsItem href={`${import.meta.env.BASE_URL}/`} label="Home" />
               {segments.map((segment, index) => {
                 if (joinLastBreadcrumb && index === segments.length - 1) {
                   return null
                 }
 
-                const url = `${import.meta.env.BASE_URL}${segments.slice(0, index + 1).join('/')}`
+                const url = `${import.meta.env.BASE_URL}/${segments.slice(0, index + 1).join('/')}`
                 const isLast = index === segments.length - 1 || (joinLastBreadcrumb && index === segments.length - 2)
 
                 const formattedName = (() => {
