@@ -1,171 +1,251 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
-import Hero from '@components/Hero.astro'
-import Feature from '@components/Feature.astro'
-import Counter from '@components/Counter.astro'
-import ContentMedia from '@components/ContentMedia.astro'
-import FeaturedProjects from '@components/FeaturedProjects.astro'
-import FeaturedPosts from '@components/FeaturedPosts.astro'
-import { Accordion, AccordionItem, Avatar, AvatarGroup, Heading, Link } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
+import { Heading, Link } from 'accessible-astro-components'
+import { getCollection } from 'astro:content'
+
+const jobs = await getCollection('jobs')
 ---
 
-<DefaultLayout title="Home">
-  <Hero />
-  <section class="my-64">
-    <div class="container">
-      <Heading level="h2" class="mb-8">Features</Heading>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="lucide:accessibility" title="Accessible by default">
-          Keyboard navigation, focus indicators, ARIA labels, semantic HTML, and more. This theme is designed to be
-          inclusive.
-        </Feature>
-        <Feature icon="lucide:puzzle" title="A11Y components">
-          25+ components and counting, all tried and tested for the most optimal accessible experience for your
-          visitors.
-        </Feature>
-        <Feature icon="lucide:moon" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
-        </Feature>
-        <Feature icon="lucide:paintbrush" title="Tailwind 4.0">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
-        </Feature>
-        <Feature icon="lucide:sparkles" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
-        </Feature>
-        <Feature icon="lucide:code" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
-        </Feature>
-        <Feature icon="lucide:bookmark" title="Blog & portfolio">
-          This theme comes with a fully integrated blog and portfolio, dynamic pages and SEO optimization.
-        </Feature>
-        <Feature icon="lucide:file-text" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
-        </Feature>
-        <Feature icon="lucide:blocks" title="Design system">
-          The theme offers some very handy utilities to help you build your website faster.
-        </Feature>
+<DefaultLayout title="FSA Careers" noHeader={true}>
+  <!-- Hero Image Section with Overlay Text and Header -->
+  <div class="relative w-full overflow-hidden" style="padding-top: 180px; padding-bottom: 160px;">
+    <img
+      src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=2000&q=80"
+      alt="College students in lecture hall"
+      class="absolute inset-0 h-full w-full object-cover"
+      style="filter: saturate(0.6);"
+    />
+    <div class="absolute inset-0 bg-black opacity-35"></div>
+
+    <!-- Department Label at Top -->
+    <div class="absolute top-0 right-0 left-0 py-6">
+      <div class="mx-auto max-w-5xl px-6">
+        <span class="text-white" style="font-size: 24px; font-weight: 700;"> U.S. Department of Education </span>
       </div>
     </div>
-  </section>
-  <ContentMedia imgSrc="/accessible-components.webp">
-    <Heading level="h2">Accessible components</Heading>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <Link
-        isExternal
-        href="https://github.com/incluud/accessible-astro-components">separate package</Link
-      >. They'll get you up and running in building an accessible solution for your visitors.
-    </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <Heading level="h2">WCAG 2.2 AA compliant</Heading>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
-    </p>
-  </ContentMedia>
-  <FeaturedProjects />
-  <FeaturedPosts />
-  <section class="my-64">
-    <div class="container grid grid-cols-1 gap-12 md:grid-cols-2">
-      <div class="flex flex-col items-start gap-4">
-        <Heading level="h2">FAQ</Heading>
-        <p class="text-2xl">
-          This section demonstrates how to effectively use the Accordion component to organize and display frequently
-          asked questions in an accessible and user-friendly way.
-        </p>
-        <Link href="/faq" isButton type="primary" animateOnHover animationType="boop">
-          <Icon aria-hidden="true" name="lucide:headset" size=" 1.5rem" />
-          Contact support team
-        </Link>
-      </div>
-      <div class="space-content">
-        <Accordion>
-          <AccordionItem name="exclusive" title="What is WCAG and why is it important?" open>
-            <p>
-              WCAG (Web Content Accessibility Guidelines) is a set of internationally recognized standards for web
-              accessibility. Following WCAG ensures your website is usable by people with various disabilities,
-              including visual, auditory, physical, and cognitive impairments. It's important not just for
-              accessibility, but also for legal compliance, SEO, and reaching a wider audience.
-            </p>
-          </AccordionItem>
-          <AccordionItem name="exclusive" title="What's the difference between ARIA labels and alt text?">
-            <p>
-              Alt text is specifically for describing images to screen reader users, while ARIA labels (aria-label,
-              aria-labelledby) can describe any element on a page. Alt text is HTML's native way to provide alternative
-              text for images, while ARIA labels are part of the ARIA specification that helps make dynamic content and
-              advanced UI controls more accessible.
-            </p>
-          </AccordionItem>
-          <AccordionItem name="exclusive" title="Why is keyboard navigation important?">
-            <p>
-              Keyboard navigation is essential for users who can't use a mouse, including people with motor
-              disabilities, visual impairments, or those who simply prefer keyboard controls. A website should be fully
-              operable using only a keyboard, with visible focus indicators and logical tab order. This includes being
-              able to access all interactive elements and navigate through content efficiently.
-            </p>
-          </AccordionItem>
-          <AccordionItem name="exclusive" title="What is a sufficient color contrast ratio?">
-            <p>
-              According to WCAG 2.2 AA standards, text should have a minimum contrast ratio of 4.5:1 against its
-              background for regular text, and 3:1 for large text (18pt or 14pt bold). For non-text elements like icons
-              or buttons, a minimum ratio of 3:1 is required. This ensures content is readable for users with visual
-              impairments or color blindness.
-            </p>
-          </AccordionItem>
-          <AccordionItem name="exclusive" title="How do I make custom components accessible?">
-            <p>
-              To make custom components accessible, focus on these key aspects: use semantic HTML where possible,
-              implement proper keyboard support, add appropriate ARIA attributes, manage focus when needed, and ensure
-              adequate color contrast. Always test with screen readers and keyboard navigation. Consider using
-              established design patterns from the <Link href="https://www.w3.org/WAI/ARIA/apg/patterns/"
-                >ARIA Authoring Practices Guide</Link
-              >.
-            </p>
-          </AccordionItem>
-        </Accordion>
-      </div>
-    </div>
-  </section>
-  <section class="my-64">
-    <div class="space-content container">
-      <Heading level="h2">Our community</Heading>
-      <p class="text-2xl">
-        We're a community of developers who are passionate about making the web more accessible. We're always looking
-        for new ways to improve the accessibility of the web.
+
+    <!-- Content -->
+    <div class="relative mx-auto max-w-5xl px-6">
+      <h1
+        class="mb-6 text-white"
+        style="font-size: 72px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8), 0 2px 8px rgba(0, 0, 0, 0.6); text-transform: uppercase;"
+      >
+        Building Technology That<br />Funds American Education.
+      </h1>
+      <p
+        class="mb-8 text-white"
+        style="font-size: 24px; line-height: 1.4; font-weight: 500; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7), 0 2px 6px rgba(0, 0, 0, 0.5);"
+      >
+        Making Federal Student Aid faster, more reliable, and accessible for millions of families.
       </p>
-      <AvatarGroup display="grid" gridItemsSize="300px" gridGap="2rem">
-        <Avatar initials="RJ" title="Robert Johnson" subtitle="Manager" />
-        <Avatar initials="MT" title="Maria Torres" subtitle="Developer" />
-        <Avatar initials="AK" title="Alex Kim" subtitle="Designer" />
-        <Avatar initials="SL" title="Sarah Lee" subtitle="Content Strategist" />
-        <Avatar initials="JP" title="James Peterson" subtitle="QA Engineer" />
-        <Avatar initials="LW" title="Lisa Wong" subtitle="Product Owner" />
-        <Avatar initials="DM" title="David Martinez" subtitle="UX Researcher" />
-        <Avatar initials="EB" title="Emma Brown" subtitle="Accessibility Specialist" />
-        <Avatar initials="TC" title="Thomas Chen" subtitle="Frontend Developer" />
-      </AvatarGroup>
+      <a
+        href="/#open-positions"
+        class="inline-block px-8 py-3.5 font-medium transition-all hover:opacity-80"
+        style="background-color: white; color: black; border: 2px solid black; border-radius: 5px; text-decoration: none; font-size: 16px;"
+      >
+        View Open Roles →
+      </a>
+    </div>
+  </div>
+
+  <!-- Impact Section (white background) -->
+  <section class="border-b border-gray-200" style="padding-top: 120px; padding-bottom: 120px;">
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="mb-24 text-center">
+        <h2 class="mb-6 text-5xl font-semibold tracking-tight md:text-6xl">Our future depends on this</h2>
+        <p class="mx-auto max-w-3xl text-xl leading-relaxed text-gray-600">
+          Federal Student Aid serves nearly every family pursuing higher education. These programs determine access,
+          affordability, and opportunity for millions.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-12 md:grid-cols-4 md:gap-8">
+        <div class="relative text-center md:px-6">
+          <div class="relative inline-block py-8">
+            <div class="absolute inset-0 flex items-center justify-center opacity-[0.05]">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+              </svg>
+            </div>
+            <div class="relative">
+              <div
+                class="mb-4 text-sm tracking-widest text-gray-500 uppercase"
+                style="letter-spacing: 0.15em; font-weight: 300;"
+              >
+                DISTRIBUTES
+              </div>
+              <div class="mb-4 font-bold tracking-tighter text-gray-900" style="font-size: 5rem; line-height: 1;">
+                $100B
+              </div>
+              <div
+                class="text-sm tracking-widest text-gray-500 uppercase"
+                style="letter-spacing: 0.15em; font-weight: 300;"
+              >
+                IN STUDENT AID ANNUALLY
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative text-center md:px-6">
+          <div class="relative inline-block py-8">
+            <div class="absolute inset-0 flex items-center justify-center opacity-[0.05]">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+              </svg>
+            </div>
+            <div class="relative">
+              <div
+                class="mb-4 text-sm tracking-widest text-gray-500 uppercase"
+                style="letter-spacing: 0.15em; font-weight: 300;"
+              >
+                SERVES
+              </div>
+              <div class="mb-4 font-bold tracking-tighter text-gray-900" style="font-size: 5rem; line-height: 1;">
+                20M
+              </div>
+              <div
+                class="text-sm tracking-widest text-gray-500 uppercase"
+                style="letter-spacing: 0.15em; font-weight: 300;"
+              >
+                STUDENTS EVERY YEAR
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative text-center md:px-6">
+          <div class="relative inline-block py-8">
+            <div class="absolute inset-0 flex items-center justify-center opacity-[0.05]">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+              </svg>
+            </div>
+            <div class="relative">
+              <div
+                class="mb-4 text-sm tracking-widest text-gray-500 uppercase"
+                style="letter-spacing: 0.15em; font-weight: 300;"
+              >
+                SUPPORTS
+              </div>
+              <div class="mb-4 font-bold tracking-tighter text-gray-900" style="font-size: 5rem; line-height: 1;">
+                6,000+
+              </div>
+              <div
+                class="text-sm tracking-widest text-gray-500 uppercase"
+                style="letter-spacing: 0.15em; font-weight: 300;"
+              >
+                INSTITUTIONS RECEIVING AID
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative text-center md:px-6">
+          <div class="relative inline-block py-8">
+            <div class="absolute inset-0 flex items-center justify-center opacity-[0.05]">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="#9CA3AF" stroke-width="1.5"></circle>
+              </svg>
+            </div>
+            <div class="relative">
+              <div
+                class="mb-4 text-sm tracking-widest text-gray-500 uppercase"
+                style="letter-spacing: 0.15em; font-weight: 300;"
+              >
+                MANAGES
+              </div>
+              <div class="mb-4 font-bold tracking-tighter text-gray-900" style="font-size: 5rem; line-height: 1;">
+                $1.6T
+              </div>
+              <div
+                class="text-sm tracking-widest text-gray-500 uppercase"
+                style="letter-spacing: 0.15em; font-weight: 300;"
+              >
+                IN FEDERAL STUDENT LOANS
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  <section class="mt-64 mb-32">
-    <div class="container">
-      <Heading level="h2" class="mb-16">Impact in numbers</Heading>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="900+" title="Stars" sub="On GitHub" />
-        <Counter count="25+" title="Accessible" sub="Components" />
-        <Counter count="400+" title="Commits" sub="Merged" />
-        <Counter count="48+" title="Months" sub="Since launch" />
+
+  <!-- Mission Statement (deep navy background) -->
+  <section
+    class="relative overflow-hidden"
+    style="background: linear-gradient(to bottom, #0A1A2F, #112D46); padding-top: 150px; padding-bottom: 150px;"
+  >
+    <!-- Subtle grain texture -->
+    <div
+      class="absolute inset-0 opacity-[0.015]"
+      style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 /%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"
+    >
+    </div>
+
+    <!-- Faint dot pattern in corners -->
+    <div
+      class="absolute inset-0 opacity-[0.04]"
+      style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 32px 32px;"
+    >
+    </div>
+
+    <div class="relative mx-auto max-w-[800px] px-6">
+      <h2 class="mb-12 text-center font-medium tracking-tight text-white" style="font-size: 42px; line-height: 1.2;">
+        Why We Exist
+      </h2>
+
+      <p class="mb-8 text-white" style="font-size: 21px; line-height: 1.65;">
+        Millions of families depend on Federal Student Aid. When the system slows down or breaks, futures are delayed.
+        We're here to fix that.
+      </p>
+
+      <p class="mb-12 text-white opacity-90" style="font-size: 21px; line-height: 1.65;">
+        We're a small, high-performing engineering team modernizing the technology behind Federal Student Aid —
+        improving the speed and reliability of core services, modernizing financial flows and eligibility logic, and
+        building simpler, more resilient systems at national scale. This work is so important it has the full backing of
+        DOGE and the administration.
+      </p>
+    </div>
+  </section>
+
+  <!-- Job Listings -->
+  <section class="py-16" id="open-positions">
+    <div class="mx-auto max-w-3xl px-6">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-5xl font-medium tracking-tight">Open Positions</h2>
+        <p class="text-lg leading-relaxed text-gray-600">
+          Our team comes from Google, Meta, USDS, 18F, and other top organizations. We're building one of the highest
+          talent-density teams in federal government. High ownership, high urgency, high standards — that's the
+          baseline.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {
+          jobs.map((job) => (
+            <a
+              href={`/jobs/${job.id}`}
+              class="group block border-b border-gray-200 pb-6 last:border-b-0"
+              style="text-decoration: none !important;"
+            >
+              <article class="flex items-start justify-between gap-8 transition-opacity hover:opacity-70">
+                <div class="flex-1">
+                  <h3 class="mb-2 text-2xl leading-tight font-semibold tracking-tight" style="color: black !important;">
+                    {job.data.title}
+                  </h3>
+                  <p class="text-base text-gray-600">{job.data.location}</p>
+                </div>
+                <div class="pt-1 text-base whitespace-nowrap text-gray-600">View details →</div>
+              </article>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
 </DefaultLayout>
-
-<style>
-  .avatar {
-    border: 1px solid var(--border-color-subtle);
-    border-radius: var(--radius-md);
-    padding: var(--space-s);
-  }
-</style>

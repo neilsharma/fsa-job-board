@@ -1,0 +1,177 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+  const jobs = await getCollection('jobs')
+  return jobs.map((job) => ({
+    params: { id: job.id },
+    props: { job },
+  }))
+}
+
+const { job } = Astro.props
+const { Content } = await render(job)
+---
+
+<DefaultLayout title={`${job.data.title} - Department of Education`}>
+  <article class="py-16 sm:py-20 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <section class="space-y-6 mb-16 text-center">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900">
+          {job.data.title}
+        </h1>
+        <div class="space-y-3">
+          <p class="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+            {job.data.location}
+          </p>
+          <p class="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+            U.S. Department of Education
+          </p>
+          <p class="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+            {job.data.salary} · $150,000 - $200,000
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-6">
+          <a
+            href="https://www.usajobs.gov"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-black px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-black/90 hover:shadow-xl transition-all duration-150"
+            style="text-decoration: none; color: white;"
+          >
+            Apply Now on USAJOBS →
+          </a>
+        </div>
+      </section>
+
+      <div class="job-content">
+        <Content />
+      </div>
+
+      <div class="mt-16 pt-10 border-t border-slate-200 text-center">
+        <a
+          href="https://www.usajobs.gov"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-full bg-black px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-black/90 hover:shadow-xl transition-all duration-150"
+          style="text-decoration: none; color: white;"
+        >
+          Apply Now on USAJOBS →
+        </a>
+      </div>
+    </div>
+  </article>
+</DefaultLayout>
+
+<style>
+  .job-content {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .job-content :global(h2) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.025em;
+    color: #0f172a;
+  }
+
+  @media (min-width: 640px) {
+    .job-content :global(h2) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .job-content :global(h3) {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.015em;
+    color: #0f172a;
+  }
+
+  @media (min-width: 640px) {
+    .job-content :global(h3) {
+      font-size: 1.125rem;
+    }
+  }
+
+  .job-content :global(p) {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #334155;
+  }
+
+  @media (min-width: 640px) {
+    .job-content :global(p) {
+      font-size: 1.125rem;
+    }
+  }
+
+  .job-content :global(ul),
+  .job-content :global(ol) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+    list-style-type: disc;
+    list-style-position: outside;
+  }
+
+  .job-content :global(li) {
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #334155;
+  }
+
+  @media (min-width: 640px) {
+    .job-content :global(li) {
+      font-size: 1.125rem;
+    }
+  }
+
+  .job-content :global(li::marker) {
+    color: #64748b;
+  }
+
+  .job-content :global(strong) {
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  .job-content :global(a) {
+    color: #2436E8;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 150ms;
+  }
+
+  .job-content :global(a:hover) {
+    color: rgba(36, 54, 232, 0.8);
+  }
+
+  .job-content :global(hr) {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border: none;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  /* Spacing adjustments for sections */
+  .job-content :global(h2 + p),
+  .job-content :global(h2 + ul) {
+    margin-top: 0.75rem;
+  }
+
+  .job-content :global(h3 + p),
+  .job-content :global(h3 + ul) {
+    margin-top: 0.5rem;
+  }
+</style>

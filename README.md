@@ -1,113 +1,158 @@
-# Accessible Astro Starter
+# Department of Education - Job Board
 
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
+A static, accessible job board website for the U.S. Department of Education. Built with Astro and designed for simplicity, accessibility, and ease of maintenance.
 
-<img width="1200" height="627" alt="social-preview" src="https://github.com/user-attachments/assets/fa1a8b50-3aab-4bd3-8f50-1d43586fbd84" />
+## Overview
 
-A ready-to-use, SEO and accessibility-focused Astro starter template. Built with modern web standards, WCAG 2.2 AA guidelines, and European Accessibility Act (EAA) compliance in mind, it provides a solid foundation for creating inclusive websites. Features Tailwind CSS 4 integration, comprehensive component library with enhanced form validation, color contrast checker, and typography with Atkinson Hyperlegible font for improved readability. Includes dynamic blog/portfolio pages with social sharing, contact forms, and full MDX support.
+This is a minimal, front-end-only static website for posting job opportunities at the Department of Education. The site is built with accessibility in mind, meeting WCAG 2.1+ AA standards and Section 508 compliance requirements for .gov websites.
 
-[![LIVE DEMO](https://img.shields.io/badge/LIVE_DEMO-4ECCA3?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro-starter.incluud.dev/) &nbsp;
-[![DOCUMENTATION](https://img.shields.io/badge/DOCUMENTATION-A682FF?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro.incluud.dev/) &nbsp;
-[![Sponsor on Open Collective](https://img.shields.io/badge/Open%20Collective-7FADF2?style=for-the-badge&logo=opencollective&logoColor=white)](https://opencollective.com/incluud) &nbsp;
+## Features
 
-## Our mission
+- **Accessible by design**: Built on the [Accessible Astro Starter](https://github.com/markteekman/accessible-astro-starter) template
+- **WCAG 2.2 AA compliant**: Keyboard navigation, semantic HTML, proper ARIA labels, and screen reader support
+- **Static site**: No backend required - all content managed via markdown files
+- **Easy to update**: Non-technical users can add or edit job postings by editing markdown files
+- **Minimal styling**: Clean, black and white design focused on content
+- **Fast and lightweight**: Optimized for performance with Astro's static site generation
 
-> Provide developers with accessible, easy-to-use components that make building inclusive web applications simpler and faster, without compromising on customization or performance.
+## Project Structure
 
-## (Accessibility) Features
+```
+/
+├── public/                 # Static assets
+├── src/
+│   ├── assets/            # Images and styles
+│   ├── components/        # Reusable Astro components
+│   ├── content/
+│   │   └── jobs/          # Job posting markdown files (EDIT HERE)
+│   ├── layouts/           # Page layouts
+│   ├── pages/
+│   │   ├── index.astro    # Home page with job listings
+│   │   └── jobs/
+│   │       └── [id].astro # Individual job detail page
+│   ├── content.config.ts  # Content collection configuration
+│   └── env.d.ts
+├── astro.config.mjs
+├── package.json
+├── tailwind.config.js
+└── tsconfig.json
+```
 
-- Astro 5.13.0+
-- Tailwind CSS 4.1+ support
-- TypeScript integration with path aliases for easier imports and content collections support
-- Prettier integration with `prettier-plugin-astro` and `prettier-plugin-tailwind`
-- ESLint integration with strict accessibility settings for `eslint-plugin-jsx-a11y`
-- Markdown and MDX support with comprehensive examples and components
-- Modern OKLCH color system with automatic palette generation from primary/secondary colors
-- Atkinson Hyperlegible font for improved readability and accessibility
-- Lucide icon set via `astro-icon` for consistent, friendly icons
-- Semantic HTML structure with `Button`, `Link` and `Heading` components
-- Excellent Lighthouse/PageSpeed scores
-- Accessible landmarks such as `header`, `main`, `footer`, `section` and `nav`
-- Outline focus indicator which works on dark and light backgrounds
-- Several `aria` attributes which provide a better experience for screen reader users
-- `[...page].astro` and `[post].astro` demonstrate the use of dynamic routes and provide a basic blog with breadcrumbs and pagination
-- `404.astro` provides a custom 404 error page which you can adjust to your needs
-- `Header.astro` component with optimized accessibility and design
-- `Footer.astro` component with informative content and links
-- `SkipLinks.astro` component to skip to either the main menu or the main content
-- `Navigation.astro` component with keyboard accessible (dropdown) navigation and highlighted menu item option
-- `ResponsiveToggle.astro` component with accessible responsive toggle functionality
-- `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme setting
-- `SiteMeta.astro` SEO component for setting custom metadata on different pages
-- `.sr-only` utility class for screen reader only text content (hides text visually)
-- `prefers-reduced-motion` disables animations for users that have this preference turned on
-- Components including `ColorContrast.astro`, `BlockQuote.astro`, `BreakoutImage.astro`, `Logo.astro`, `SocialShares.astro`, `PageHeader.astro`, `FeaturedPosts.astro`, and `FeaturedProjects.astro`
-- Enhanced form components with comprehensive validation: `Form`, `Input`, `Textarea`, `Checkbox`, `Radio`, and `Fieldset` with WCAG 2.2 compliance
-- Automatic form validation with custom patterns, error handling, and screen reader support
-- Blog and portfolio pages with featured images, author details, social sharing, and breakout images
-- Contact page with comprehensive form validation showcase and accessibility demonstrations
-- Thank-you page for form submissions with interactive feedback
-- Accessibility Statement template page
-- Color Contrast Checker interactive page
-- Comprehensive sitemap page with organized navigation and automatic XML sitemap generation via `@astrojs/sitemap`
-- Enhanced accessible-components showcase page with expanded component demonstrations
-- Smooth micro-interactions and animations on hover, open and close states (respecting reduced motion preferences)
-- Comprehensive SCSS utility classes
-- CSS with logical properties and custom properties
-- Accessible button and hyperlink styling with clear focus states
-- Styled `<kbd>` element for keyboard shortcut documentation
+## Getting Started
 
-## Getting started
+### Prerequisites
 
-Clone this theme locally and run any of the following commands in your terminal:
+- Node.js 18+ installed
+- npm or pnpm package manager
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:4321`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+### Installation
 
-## Accessible Astro projects
+1. Clone this repository:
+   ```bash
+   git clone <repository-url>
+   cd fsa-job-board
+   ```
 
-- [Accessible Astro Starter](https://github.com/incluud/accessible-astro-starter): Fully accessible starter for kickstarting Astro projects, with Tailwind.
-- [Accessible Astro Components](https://github.com/incluud/accessible-astro-components/): Library of reusable, accessible components built for Astro.
-- [Accessible Astro Dashboard](https://github.com/incluud/accessible-astro-dashboard/): User-friendly dashboard interface with a login screen and widgets.
-- [Accessible Astro Docs](https://github.com/incluud/accessible-astro-docs): Comprehensive documentation for all Accessible Astro projects.
-- [Color Contrast Checker](https://github.com/incluud/color-contrast-checker): WCAG-compliant color contrast checker with design system token generation.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Check out our [roadmap](https://github.com/orgs/incluud/projects/4/views/1) to see what's coming next!
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Contributing
+4. Open your browser to `http://localhost:4321`
 
-We welcome contributions to improve the documentation! You can help by:
+## Managing Job Postings
 
-1. [Filing an issue](https://github.com/incluud/accessible-astro-starter/issues)
-2. [Submitting a pull request](https://github.com/incluud/accessible-astro-starter/pulls)
-3. [Starting a discussion](https://github.com/incluud/accessible-astro-starter/discussions)
-4. [Supporting on Open Collective](https://opencollective.com/incluud)
+All job postings are stored as markdown files in `src/content/jobs/`. Each file represents one job posting.
 
-## Support this project
+### Adding a New Job
 
-Your support helps us cover basic costs and continue building accessible solutions for the Astro ecosystem. By becoming a sponsor, you're not just supporting code – you're helping create a more inclusive web for everyone. Every contribution, big or small, helps maintain and improve these accessibility-focused tools.
+1. Create a new `.md` file in `src/content/jobs/` (e.g., `software-engineer.md`)
+2. Add frontmatter with job details:
 
-[![Sponsor on Open Collective](https://img.shields.io/badge/Open%20Collective-7FADF2?style=for-the-badge&logo=opencollective&logoColor=white)](https://opencollective.com/incluud)
+```markdown
+---
+title: "Job Title Here"
+department: "Department Name"
+location: "Remote / Washington, DC / Hybrid"
+salary: "GS-XX-XX or salary range"
+postedDate: "2025-01-15"
+deadline: "2025-02-28"
+description: "Brief one-sentence description of the role"
+---
 
-## Together we make a difference
+## Full job posting content here...
 
-We want to express our heartfelt gratitude to everyone who contributes to making the web more accessible:
+Write the complete job description using markdown formatting.
+```
 
-- **The Astro team** for creating an amazing static site generator and the wonderful Starlight theme
-- **Our contributors** who dedicate their time and expertise to improve these tools
-- [**Niek Derksen**](https://niekderksen.nl) for conducting comprehensive accessibility audits to ensure WCAG compliance
-- **Our sponsors** who help make this project sustainable
-- **The web community** for embracing and promoting web accessibility
-- **You, the developer** for choosing to make your projects more accessible
+3. Save the file - the site will automatically include it on the jobs page
 
-<a href="https://github.com/incluud/accessible-astro-starter/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=incluud/accessible-astro-starter" />
-</a><br /><br />
+### Editing an Existing Job
 
-Together, we're not just building documentation or components – we're creating a more inclusive and accessible web for everyone. Every contribution, whether it's code, documentation, bug reports, or feedback, helps move us closer to this goal. ✨
+1. Navigate to `src/content/jobs/`
+2. Find the job posting file you want to edit
+3. Open it in any text editor
+4. Make your changes
+5. Save the file
 
-Remember: Accessibility is not a feature, it's a fundamental right. Thank you for being part of this journey!
+### Removing a Job
+
+1. Navigate to `src/content/jobs/`
+2. Delete the markdown file for that job posting
+
+## Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+This creates a `dist/` folder with static files ready to deploy.
+
+## Deployment
+
+### GitHub Pages
+
+1. Build the site: `npm run build`
+2. Deploy the `dist/` folder to GitHub Pages
+
+### cloud.gov
+
+1. Build the site: `npm run build`
+2. Follow cloud.gov static site deployment instructions
+3. Point to the `dist/` folder
+
+## Accessibility
+
+This site is built with accessibility as a core requirement:
+
+- ✅ WCAG 2.2 Level AA compliant
+- ✅ Section 508 compliant
+- ✅ Keyboard navigation support
+- ✅ Screen reader friendly
+- ✅ Semantic HTML structure
+- ✅ Proper heading hierarchy
+- ✅ Skip links for navigation
+- ✅ Focus indicators
+- ✅ Sufficient color contrast
+
+## Technology Stack
+
+- **Astro 5.15+**: Static site generator
+- **TypeScript**: Type safety
+- **Tailwind CSS 4**: Utility-first styling
+- **Markdown**: Content management
+
+## Support
+
+For issues or questions, contact the web team or create an issue in this repository.
+
+## License
+
+This project is in the public domain as a work of the U.S. Government.

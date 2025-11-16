@@ -5,15 +5,18 @@ import { defineCollection, z } from 'astro:content'
 import { glob } from 'astro/loaders'
 
 // 3. Define your collection(s)
-const projects = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/projects' }),
+const jobs = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/jobs' }),
   schema: z.object({
     title: z.string(),
-    author: z.string(),
+    department: z.string(),
+    location: z.string(),
+    salary: z.string().optional(),
+    postedDate: z.string(),
+    deadline: z.string().optional(),
     description: z.string(),
-    tags: z.array(z.string()).default([]),
   }),
 })
 
-// 4. Export a single `collections` object to register you collection(s)
-export const collections = { projects }
+// 4. Export a single `collections` object to register your collection(s)
+export const collections = { jobs }
