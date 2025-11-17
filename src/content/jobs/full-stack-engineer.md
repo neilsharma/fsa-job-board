@@ -1,41 +1,74 @@
 ---
-title: "Principal Software Engineer (Full Stack)"
+title: "Full Stack Engineer (Staff/Principal)"
 department: "Federal Student Aid"
 location: "Remote"
-postedDate: "2025-01-10"
+postedDate: "2025-01-17"
 deadline: "2025-02-15"
 description: "Build and maintain web applications that serve millions of students and families accessing federal student aid."
+salary: "GS-2210-15"
 ---
 
-## About the Mission
+The engineering decisions you make will determine whether 20 million Americans can access college. You'll help rebuild the system that distributes $120 billion in federal aid each year — the gateway to higher education for an entire generation. After last year's FAFSA rollout left millions of families unable to access aid, we now have both the mandate and the funding to rebuild this critical infrastructure from the ground up.
 
-Federal Student Aid (FSA) helps roughly twenty million people each year access more than $100 billion in federal student aid. The FAFSA experience is the gateway to that entire system. Modernizing this ecosystem directly shapes educational opportunity for families across the country — the work you do here will have generational impact.
+## The Technical Challenge
 
-## The Role
+You'll architect and ship the systems behind studentaid.gov, handling:
 
-As a Principal Software Engineer, you'll take on nationally significant engineering challenges and help set the technical pace for a high-output engineering team. This is a hands-on role where you will write code, guide architectural decisions, and improve how multiple teams build, test, deploy, and operate critical FAFSA systems.
+- 10 million applications in a 6-month window with brutal traffic spikes
+- Complex eligibility calculations with thousands of edge cases
+- Real-time integrations with IRS, SSA, and other federal systems
+- Accessibility requirements that actually matter — mistakes here affect real students, including blind and low-vision applicants
+- Zero-downtime deployments when "downtime" means families can't pay tuition
 
-## What We're Looking For
+The specific tech stack doesn't matter — we need engineers who can work with and improve whatever technology serves the mission.
 
-You have **10+ years building and operating critical, at-scale systems** and have led multi-year initiatives with measurable impact. You care deeply about the work — this is a chance to improve access to education for millions of American families.
+## What You'll Actually Do
 
-New hires have recently accomplished in their first six months:
-- Modernized core FAFSA workflows used by millions, reducing friction and support volumes
-- Cut error rates in critical application steps, directly increasing successful submissions
-- Rebuilt legacy components into maintainable services that reduce operational burden
-- Stabilized systems that previously caused outages during peak periods, improving uptime for millions
+You'll modernize the practices and systems powering federal student aid. You'll steer technical direction across multiple teams while writing code when it matters. This is a hands-on technical leadership role — you won't code all day, but when the mission demands it, you'll dive deep and write or review production code that unblocks teams and accelerates critical work.
 
-## What You'll Do
+You'll:
 
-You'll set technical direction while staying hands-on with code. You'll mentor senior engineers and shape how the team builds reliable systems at scale.
+- Drive the transformation of legacy systems into modern, maintainable services
+- Set technical standards and engineering practices across federal and contractor teams
+- Make architectural decisions that will shape the system for the next decade
+- Identify and eliminate the bottlenecks preventing teams from shipping faster
+- Turn federal policy requirements into implementable technical strategies
+- Review and improve pull requests across multiple codebases, ensuring reliability and clarity
+- Debug complex production issues and guide teams through root-cause analysis
+- Write or refine architecture docs, RFCs, and technical decision records that guide implementation
 
-- Design architecture and write production code for systems serving millions of FAFSA applicants
-- Set standards for code quality, testing, and technical reviews
-- Mentor engineers and shape practices around performance, observability, and reliability
-- Partner with product, design, and policy teams to align technical decisions with user needs
+## Recent Engineering Wins
 
-## Compensation & Benefits
+What engineers who joined in the last year have shipped:
 
-This is a GS-2210-15 position. Federal employment includes comprehensive health insurance, retirement benefits, and generous paid time off.
+- Built a unified automated testing environment used across multiple systems, replacing the need for dozens of manual testers and enabling accurate, reliable end-to-end testing
+- Cut deployment time from 6 hours to 15 minutes with a new CI/CD pipeline
+- Rebuilt form validation to save incomplete applications, recovering 100,000+ submissions
+- Introduced data-driven decision-making workflows that increased shipping velocity and dramatically improved confidence in production changes
 
-This position is remote — work from anywhere in the United States.
+## Who Succeeds Here
+
+We're looking for engineers who've built at scale and led without authority. If you've been a strong Senior at a top tech company or Staff+ elsewhere, you're probably ready.
+
+You've likely:
+
+- Built systems serving millions of users in production
+- Led multi-quarter technical initiatives across multiple teams
+- Migrated legacy systems while keeping the lights on
+- Stayed hands-on with code while operating at Principal/Staff level
+
+We care more about your judgment and ability to ship than your pedigree. Don't self-select out because you haven't worked in government.
+
+## The Reality Check
+
+**Compensation:** Competitive federal salary with excellent benefits, pension, and work-life balance. The stability and mission make up for what you might leave on the table elsewhere.
+
+**Role Level:** This is a GS-15 technical position — equivalent to a Principal or Staff Engineer at a top-tier technology company.
+
+**The work:** You'll deal with legacy systems, federal compliance, and stakeholders who think Waterfall is modern. You'll also ship code that impacts more Americans than most consumer apps ever will. Once you're in, you have technical autonomy rarely seen in government.
+
+## Interview Process
+
+[Details forthcoming — we're designing a process that respects your time and evaluates real technical leadership skills, not algorithmic trivia.]
+
+Questions? Contact: fsa-tech-hiring@ed.gov
