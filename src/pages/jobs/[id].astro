@@ -14,7 +14,7 @@ const { job } = Astro.props
 const { Content } = await render(job)
 ---
 
-<DefaultLayout title={`${job.data.title} - Department of Education`}>
+<DefaultLayout title={`${job.data.title} - Department of Education`} headerVariant="jobDetail">
   <article class="job-detail-page py-16 sm:py-20 lg:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <section class="space-y-6 mb-16 text-center">
@@ -63,13 +63,6 @@ const { Content } = await render(job)
     </div>
   </article>
 </DefaultLayout>
-
-<style is:global>
-  /* Constrain header width to match job content on job pages */
-  body:has(.job-detail-page) #main-navigation > .container {
-    max-width: 48rem; /* match max-w-3xl (768px) */
-  }
-</style>
 
 <style>
   .job-content {

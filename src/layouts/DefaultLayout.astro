@@ -13,6 +13,7 @@ const {
   image = 'social-preview-image.png',
   author = 'Incluud',
   noHeader = false,
+  headerVariant = 'default',
 } = Astro.props
 ---
 
@@ -36,7 +37,7 @@ const {
     <ClientRouter />
   </head>
   <body>
-    {!noHeader && <Header />}
+    {!noHeader && <Header variant={headerVariant} />}
     <main id="main-content" transition:animate="fade">
       <slot />
     </main>
