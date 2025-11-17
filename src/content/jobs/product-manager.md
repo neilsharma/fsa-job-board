@@ -2,6 +2,7 @@
 title: "Product Manager"
 department: "Federal Student Aid"
 location: "Remote"
+roleType: "Product"
 postedDate: "2025-01-11"
 deadline: "2025-02-15"
 description: "Lead product strategy and execution for federal student aid systems."

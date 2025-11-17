@@ -2,6 +2,7 @@
 title: "Technical Product Manager"
 department: "Federal Student Aid"
 location: "Remote"
+roleType: "Product"
 postedDate: "2025-01-10"
 deadline: "2025-02-15"
 description: "Lead technical product strategy and execution for federal student aid systems."

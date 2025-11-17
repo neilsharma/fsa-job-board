@@ -2,7 +2,14 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import { getCollection } from 'astro:content'
 
-const jobs = await getCollection('jobs')
+const jobs = (await getCollection('jobs')).sort((a, b) => {
+  const dateA = new Date(a.data.postedDate)
+  const dateB = new Date(b.data.postedDate)
+  return dateB.getTime() - dateA.getTime() // Sort descending (newest first)
+})
+
+// Debug: log the first job to see what data we have
+console.log('First job data:', jobs[0]?.data)
 ---
 
 <DefaultLayout title="FSA Careers" noHeader={true}>
@@ -133,7 +140,7 @@ const jobs = await getCollection('jobs')
                 SUPPORTS
               </div>
               <div class="mb-4 text-5xl font-bold tracking-tighter text-gray-900 md:text-7xl" style="line-height: 1;">
-                6,000+
+                6,000
               </div>
               <div
                 class="text-sm tracking-widest text-black uppercase"
@@ -245,7 +252,14 @@ const jobs = await getCollection('jobs')
                   <h3 class="mb-2 text-2xl leading-tight font-semibold tracking-tight text-white">
                     {job.data.title}
                   </h3>
-                  <p class="text-base text-white/70">{job.data.location}</p>
+                  <div class="mb-2 flex items-center gap-2">
+                    {job.data.roleType && (
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-white/10 text-white/90 border border-white/20">
+                        {job.data.roleType}
+                      </span>
+                    )}
+                    <span class="text-base text-white/70">{job.data.location}</span>
+                  </div>
                 </div>
                 <div class="pt-1 text-base whitespace-nowrap text-white/70">View details →</div>
               </article>

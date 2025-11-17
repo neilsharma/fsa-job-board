@@ -2,6 +2,7 @@
 title: "Full Stack Engineer (Staff/Principal)"
 department: "Federal Student Aid"
 location: "Remote"
+roleType: "Engineering"
 postedDate: "2025-01-17"
 deadline: "2025-02-15"
 description: "Build and maintain web applications that serve millions of students and families accessing federal student aid."
