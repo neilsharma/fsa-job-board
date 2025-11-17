@@ -10,10 +10,12 @@ const jobs = await getCollection('jobs')
   <!-- Hero Image Section with Overlay Text and Header -->
   <div class="relative w-full overflow-hidden" style="padding-top: 120px; padding-bottom: 100px;">
     <img
-      src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=2000&q=80"
+      src={`${import.meta.env.BASE_URL}/college-students-hero.jpg`}
       alt="College students in lecture hall"
       class="absolute inset-0 h-full w-full object-cover"
       style="filter: saturate(0.6);"
+      loading="eager"
+      fetchpriority="high"
     />
     <div class="absolute inset-0 bg-black opacity-35"></div>
 
