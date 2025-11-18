@@ -1,0 +1,84 @@
+---
+// Official US Government Banner (USWDS)
+---
+
+<section class="usa-banner" style="background-color: #d9d9d9;">
+  <div class="usa-accordion">
+    <header class="usa-banner__header" style="background-color: #d9d9d9; padding: 0.5rem 0;">
+      <div class="usa-banner__inner" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <div class="grid-col-auto" style="display: flex; align-items: center;">
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="16" height="11" fill="#B22234"/>
+            <rect y="0.846154" width="16" height="0.846154" fill="white"/>
+            <rect y="2.53846" width="16" height="0.846154" fill="white"/>
+            <rect y="4.23077" width="16" height="0.846154" fill="white"/>
+            <rect y="5.92308" width="16" height="0.846154" fill="white"/>
+            <rect y="7.61538" width="16" height="0.846154" fill="white"/>
+            <rect y="9.30769" width="16" height="0.846154" fill="white"/>
+            <rect width="6.4" height="5.92308" fill="#3C3B6E"/>
+          </svg>
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" style="flex: 1;">
+          <p class="usa-banner__header-text" style="margin: 0; font-size: 0.8125rem; color: #1b1b1b; line-height: 1.5;">
+            An official website of the United States government
+          </p>
+        </div>
+        <button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner"
+          style="background: none; border: none; color: #005ea2; font-size: 0.8125rem; cursor: pointer; padding: 0.25rem 0.5rem; text-decoration: underline; white-space: nowrap; margin-left: auto;"
+          onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'); document.getElementById('gov-banner').hidden = !document.getElementById('gov-banner').hidden;"
+        >
+          <span class="usa-banner__button-text">Here's how you know</span>
+        </button>
+      </div>
+    </header>
+    <div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner"
+      hidden
+      style="background-color: white; border-top: 1px solid #dfe1e2;"
+    >
+      <div class="grid-row grid-gap-lg" style="max-width: 1200px; margin: 0 auto; padding: 1.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem;">
+        <div class="usa-banner__guidance tablet:grid-col-6" style="display: flex; gap: 1rem; align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            <svg width="26" height="26" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="18.5" stroke="#5B616B" stroke-width="3"/>
+              <circle cx="20" cy="30" r="2" fill="#5B616B"/>
+              <rect x="18" y="13" width="4" height="12" rx="2" fill="#5B616B"/>
+            </svg>
+          </div>
+          <div class="usa-media-block__body" style="flex: 1;">
+            <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6; color: #1b1b1b;">
+              <strong style="font-weight: 700;">Official websites use .gov</strong><br>
+              A <strong style="font-weight: 700;">.gov</strong> website belongs to an official government organization in the United States.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6" style="display: flex; gap: 1rem; align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="26" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#5B616B" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"/>
+            </svg>
+          </div>
+          <div class="usa-media-block__body" style="flex: 1;">
+            <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6; color: #1b1b1b;">
+              <strong style="font-weight: 700;">Secure .gov websites use HTTPS</strong><br>
+              A <strong style="font-weight: 700;">lock</strong> (<svg width="9" height="12" viewBox="0 0 52 64" style="display: inline-block; vertical-align: middle; margin: 0 2px;"><path fill="currentColor" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"/></svg>) or <strong style="font-weight: 700;">https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 640px) {
+    .grid-row.grid-gap-lg {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+</style>
